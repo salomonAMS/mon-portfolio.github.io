@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hors ligne - Portfolio Salomon</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #695aa6 0%, rgba(105, 90, 166, 0.8) 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .offline-container {
+            max-width: 500px;
+            padding: 2rem;
+        }
+        
+        .offline-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .retry-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .retry-btn:hover {
+            background: white;
+            color: #695aa6;
+            transform: translateY(-2px);
+        }
+        
+        .features-list {
+            margin-top: 2rem;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        
+        .features-list h3 {
+            margin-top: 0;
+            color: #fff;
+        }
+        
+        .features-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .features-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .features-list li:before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">📡</div>
+        <h1>Vous êtes hors ligne</h1>
+        <p>
+            Il semble que vous n'ayez pas de connexion internet en ce moment. 
+            Ne vous inquiétez pas, grâce au cache de notre site, vous pouvez toujours naviguer !
+        </p>
+        
+        <a href="/" class="retry-btn" onclick="window.location.reload()">
+            Réessayer
+        </a>
+        
+        <div class="features-list">
+            <h3>Fonctionnalités disponibles hors ligne :</h3>
+            <ul>
+                <li>Consultation de mon portfolio</li>
+                <li>Navigation entre les sections</li>
+                <li>Visualisation de mes projets</li>
+                <li>Informations de contact</li>
+                <li>CV téléchargeable (si déjà consulté)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Vérifier la connexion périodiquement
+        function checkConnection() {
+            if (navigator.onLine) {
+                // Rediriger vers la page principale si la connexion est rétablie
+                window.location.href = '/';
+            }
+        }
+        
+        // Vérifier la connexion toutes les 5 secondes
+        setInterval(checkConnection, 5000);
+        
+        // Écouter les événements de connexion
+        window.addEventListener('online', checkConnection);
+        
+        // Message de statut
+        console.log('Page hors ligne chargée. Vérification de la connexion en cours...');
+    </script>
+</body>
+</html>

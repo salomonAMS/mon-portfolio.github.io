@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Portfolio de Salomon AMOUSSOU-KPAKPA - Développeur Full-Stack passionné, étudiant en 3ème année Licence Informatique. Spécialisé en HTML, CSS, JavaScript, PHP, Python.">
+    <meta name="keywords" content="développeur, full-stack, portfolio, web, HTML, CSS, JavaScript, PHP, Python, étudiant informatique">
+    <meta name="author" content="Salomon AMOUSSOU-KPAKPA">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Salomon AMOUSSOU-KPAKPA - Développeur Full-Stack">
+    <meta property="og:description" content="Portfolio de Salomon AMOUSSOU-KPAKPA - Développeur Full-Stack passionné, étudiant en 3ème année Licence Informatique. Spécialisé en HTML, CSS, JavaScript, PHP, Python.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/imgs/mon logo.png">
+    
+    <title>Mon portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/imgs/mon logo.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="assets/imgs/mon logo.png" sizes="64x64" />
+    <link rel="icon" type="image/png" href="assets/imgs/mon logo.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="assets/imgs/mon logo.png" sizes="16x16" />
+    <link rel="shortcut icon" href="assets/imgs/mon logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/mon logo.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/imgs/mon logo.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/imgs/mon logo.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/imgs/mon logo.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/imgs/mon logo.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/imgs/mon logo.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/imgs/mon logo.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/imgs/mon logo.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/imgs/mon logo.png" />
+    <meta name="msapplication-TileImage" content="assets/imgs/mon logo.png">
+    <meta name="msapplication-TileColor" content="#695aa6">
+    <meta name="theme-color" content="#695aa6">
+    
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + Meyawo main styles -->
+    <link rel="stylesheet" href="assets/css/meyawo.css?v=1.1">
+    
+    <!-- Optimiseur de ressources critique - chargé en priorité -->
+    <script>
+        // CSS critique inline pour un rendu immédiat
+        const criticalCSS = `
+            .loading-spinner {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 9999;
+                transition: opacity 0.3s ease-out;
+            }
+            .spinner {
+                width: 40px;
+                height: 40px;
+                border: 4px solid rgba(105, 90, 166, 0.1);
+                border-left: 4px solid #695aa6;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .fade-in {
+                opacity: 0;
+                animation: fadeIn 0.5s ease-in forwards;
+            }
+            @keyframes fadeIn {
+                to { opacity: 1; }
+            }
+            .custom-tooltip {
+                position: absolute;
+                background: #333;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 4px;
+                font-size: 12px;
+                z-index: 1000;
+                pointer-events: none;
+            }
+        `;
+        
+        // Injecter le CSS critique
+        const style = document.createElement('style');
+        style.textContent = criticalCSS;
+        document.head.appendChild(style);
+    </script>
+    
+    <!-- Resource Optimizer - chargé de manière asynchrone -->
+    <script async src="assets/js/resource-optimizer.js"></script>
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40">
+
+    <!-- Spinner de chargement optimisé -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="logo" href="#"><img src="assets/imgs/mon logo.png" alt="Mon Logo">Mon Portfolio</a>
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" href="#home">Accueil</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#about">À propos</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#skills">Compétences</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#contact">Contact</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>
+    </nav><!-- End of Page Navbar -->
+
+<!-- page header -->
+<header id="home" class="header">
+    <div class="overlay"></div>
+    <div class="header-content container">
+        <h1 class="header-title">
+            <div class="text-hero"></div>
+            <div class="text-impact"></div>
+        </h1>
+        <p class="header-subtitle fade-in-up text-emphasis" style="color: #695aa6 !important;">Développeur Full-Stack passionné | Étudiant en 3ème année Licence Informatique</p>
+        <button class="btn btn-primary fade-in-button btn-responsive-header" style="color: #fff !important;" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})" title="Découvrir mes projets">
+            <i class="ti-eye"></i> <span class="btn-text-header" style="color: #fff !important;">Découvrir mes projets</span>
+        </button>
+    </div>
+</header><!-- end of page header -->
+
+
+    <!-- Section À propos - Mise en page professionnelle -->
+    <section class="section-professional" id="about">
+        <div class="container">
+            <div class="section-content">
+                <div class="section-visual">
+                    <div class="profile-image-container">
+                        <img src="assets/imgs/télécharger (3).jpeg" class="profile-image" alt="Salomon AMOUSSOU-KPAKPA">
+                    </div>
+                </div>
+                <div class="section-text">
+                    <p class="section-subtitle-pro">Découvrez mon parcours</p>
+                    <h2 class="section-title-pro">À propos de moi</h2>
+                    <div class="section-description">
+                        <p>
+                            Salut ! Je suis <span class="highlight">Salomon AMOUSSOU-KPAKPA</span>, 
+                            étudiant en 3ème année de Licence Informatique au Togo. Ma passion pour 
+                            la programmation web a commencé il y a quelques années quand j'ai découvert 
+                            la magie de créer des interfaces interactives.
+                        </p>
+                        <p>
+                            Ce qui m'a attiré vers le développement web, c'est la possibilité de 
+                            <span class="highlight">transformer des idées en réalité digitale</span>. 
+                            Chaque ligne de code est une opportunité de résoudre un problème concret 
+                            et d'améliorer l'expérience utilisateur.
+                        </p>
+                        <p>
+                            Mon parcours académique en informatique me donne une base solide en 
+                            algorithmique et en structures de données, que j'applique quotidiennement 
+                            dans mes projets web. Je suis particulièrement motivé par l'apprentissage 
+                            continu - le monde du web évolue rapidement et j'adore relever ces défis !
+                        </p>
+                    </div>
+                    
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Années d'études</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Projets réalisés</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">6+</span>
+                            <span class="stat-label">Technologies maîtrisées</span>
+                        </div>
+                    </div>
+                    
+                    <div class="buttons-container-responsive" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <a href="CV_2025-07-28_Kossi salomon H._AMOUSSOU-KPAKPA.pdf" target="_blank" class="btn-professional btn-responsive" title="Télécharger mon CV" style="color: #fff !important;">
+                            <i class="ti-download"></i> <span class="btn-text" style="color: #fff !important;">Télécharger mon CV</span>
+                        </a>
+                        <a href="#contact" class="btn-professional btn-responsive" title="Me contacter" style="color: #fff !important;">
+                            <i class="ti-email"></i> <span class="btn-text" style="color: #fff !important;">Me contacter</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Compétences - Disposition inversée -->
+    <section class="section-professional reverse" id="skills">
+        <div class="container">
+            <div class="section-content">
+                <div class="section-text">
+                    <p class="section-subtitle-pro">Mon expertise technique</p>
+                    <h2 class="section-title-pro">Compétences & Technologies</h2>
+                    <div class="section-description">
+                        <p>
+                            En tant que <span class="highlight">développeur full-stack en devenir</span>, 
+                            je maîtrise un ensemble de technologies modernes qui me permettent de créer 
+                            des applications web complètes et performantes.
+                        </p>
+                        <p>
+                            Mon approche se concentre sur l'écriture de code propre, maintenable et 
+                            l'utilisation des meilleures pratiques de développement pour garantir 
+                            des solutions robustes et évolutives.
+                        </p>
+                    </div>
+                    
+                    <!-- Compétences techniques avec barres de progression -->
+                    <div style="margin-top: 30px;">
+                        <h5 style="font-family: 'Inter', sans-serif; font-weight: 600; color: #333; margin-bottom: 20px;">
+                            <i class="ti-bar-chart" style="margin-right: 8px; color: #695aa6;"></i>
+                            Niveau de maîtrise
+                        </h5>
+                        
+                        <div class="progress-skills-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 100%;">
+                            <div style="padding: 12px; background: rgba(255, 255, 255, 0.7); border-radius: 10px; border: 1px solid rgba(105, 90, 166, 0.1);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span style="font-family: 'Inter', sans-serif; font-weight: 600; color: #333; font-size: 0.9rem;">HTML/CSS</span>
+                                    <span style="font-family: 'Fira Code', monospace; font-weight: 700; color: #695aa6; background: rgba(105, 90, 166, 0.1); padding: 2px 6px; border-radius: 10px; font-size: 0.75rem;">85%</span>
+                                </div>
+                                <div style="width: 100%; height: 4px; background: #e1e5e9; border-radius: 6px; overflow: hidden;">
+                                    <div style="height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; width: 85%; transition: width 2s ease;"></div>
+                                </div>
+                            </div>
+                            
+                            <div style="padding: 12px; background: rgba(255, 255, 255, 0.7); border-radius: 10px; border: 1px solid rgba(105, 90, 166, 0.1);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span style="font-family: 'Inter', sans-serif; font-weight: 600; color: #333; font-size: 0.9rem;">JavaScript</span>
+                                    <span style="font-family: 'Fira Code', monospace; font-weight: 700; color: #695aa6; background: rgba(105, 90, 166, 0.1); padding: 2px 6px; border-radius: 10px; font-size: 0.75rem;">30%</span>
+                                </div>
+                                <div style="width: 100%; height: 4px; background: #e1e5e9; border-radius: 6px; overflow: hidden;">
+                                    <div style="height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; width: 30%; transition: width 2s ease;"></div>
+                                </div>
+                            </div>
+                            
+                            <div style="padding: 12px; background: rgba(255, 255, 255, 0.7); border-radius: 10px; border: 1px solid rgba(105, 90, 166, 0.1);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span style="font-family: 'Inter', sans-serif; font-weight: 600; color: #333; font-size: 0.9rem;">PHP</span>
+                                    <span style="font-family: 'Fira Code', monospace; font-weight: 700; color: #695aa6; background: rgba(105, 90, 166, 0.1); padding: 2px 6px; border-radius: 10px; font-size: 0.75rem;">60%</span>
+                                </div>
+                                <div style="width: 100%; height: 4px; background: #e1e5e9; border-radius: 6px; overflow: hidden;">
+                                    <div style="height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; width: 60%; transition: width 2s ease;"></div>
+                                </div>
+                            </div>
+                            
+                            <div style="padding: 12px; background: rgba(255, 255, 255, 0.7); border-radius: 10px; border: 1px solid rgba(105, 90, 166, 0.1);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span style="font-family: 'Inter', sans-serif; font-weight: 600; color: #333; font-size: 0.9rem;">MySQL</span>
+                                    <span style="font-family: 'Fira Code', monospace; font-weight: 700; color: #695aa6; background: rgba(105, 90, 166, 0.1); padding: 2px 6px; border-radius: 10px; font-size: 0.75rem;">60%</span>
+                                </div>
+                                <div style="width: 100%; height: 4px; background: #e1e5e9; border-radius: 6px; overflow: hidden;">
+                                    <div style="height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; width: 60%; transition: width 2s ease;"></div>
+                                </div>
+                            </div>
+                            
+                            <div style="padding: 12px; background: rgba(255, 255, 255, 0.7); border-radius: 10px; border: 1px solid rgba(105, 90, 166, 0.1);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span style="font-family: 'Inter', sans-serif; font-weight: 600; color: #333; font-size: 0.9rem;">Bootstrap</span>
+                                    <span style="font-family: 'Fira Code', monospace; font-weight: 700; color: #695aa6; background: rgba(105, 90, 166, 0.1); padding: 2px 6px; border-radius: 10px; font-size: 0.75rem;">85%</span>
+                                </div>
+                                <div style="width: 100%; height: 4px; background: #e1e5e9; border-radius: 6px; overflow: hidden;">
+                                    <div style="height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; width: 85%; transition: width 2s ease;"></div>
+                                </div>
+                            </div>
+                            
+                            <div style="padding: 12px; background: rgba(255, 255, 255, 0.7); border-radius: 10px; border: 1px solid rgba(105, 90, 166, 0.1);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span style="font-family: 'Inter', sans-serif; font-weight: 600; color: #333; font-size: 0.9rem;">Git/GitHub</span>
+                                    <span style="font-family: 'Fira Code', monospace; font-weight: 700; color: #695aa6; background: rgba(105, 90, 166, 0.1); padding: 2px 6px; border-radius: 10px; font-size: 0.75rem;">80%</span>
+                                </div>
+                                <div style="width: 100%; height: 4px; background: #e1e5e9; border-radius: 6px; overflow: hidden;">
+                                    <div style="height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; width: 80%; transition: width 2s ease;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 20px;">
+                            <p style="color: #666; font-style: italic; font-size: 0.8rem; margin: 0;">
+                                * Niveaux basés sur l'expérience pratique et les projets réalisés
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-visual">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="skill-card">
+                                <div class="skill-card-main">
+                                    <img src="assets/imgs/responsive.svg" alt="Frontend Development" class="skill-icon">
+                                    <h6 class="skill-title">Frontend</h6>
+                                    <p class="skill-description-short">Interfaces modernes et responsives</p>
+                                </div>
+                                <div class="skill-card-details">
+                                    <div class="skill-card-header">
+                                        <img src="assets/imgs/responsive.svg" alt="Frontend Development" class="skill-icon">
+                                        <h6 class="skill-title">Frontend</h6>
+                                    </div>
+                                    <div class="skill-card-content">
+                                        <p class="skill-description-detailed">
+                                            HTML5, CSS3, JavaScript, Bootstrap - Création d'interfaces utilisateur 
+                                            dynamiques et responsives avec une attention particulière à l'UX.
+                                        </p>
+                                    </div>
+                                    <div class="skill-technologies">
+                                        <h6>Technologies :</h6>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">HTML5</span>
+                                            <span class="tech-tag">CSS3</span>
+                                            <span class="tech-tag">JavaScript</span>
+                                            <span class="tech-tag">Bootstrap</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="skill-card">
+                                <div class="skill-card-main">
+                                    <img src="assets/imgs/toolbox.svg" alt="Backend Development" class="skill-icon">
+                                    <h6 class="skill-title">Backend</h6>
+                                    <p class="skill-description-short">Serveurs robustes et APIs</p>
+                                </div>
+                                <div class="skill-card-details">
+                                    <img src="assets/imgs/toolbox.svg" alt="Backend Development" class="skill-icon">
+                                    <h6 class="skill-title">Backend</h6>
+                                    <p class="skill-description-detailed">
+                                        PHP, Laravel (en apprentissage) - Développement de serveurs robustes, 
+                                        APIs RESTful et gestion de bases de données.
+                                    </p>
+                                    <div class="skill-technologies">
+                                        <h6>Technologies :</h6>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">PHP</span>
+                                            <span class="tech-tag">Laravel</span>
+                                            <span class="tech-tag">MySQL</span>
+                                            <span class="tech-tag">API REST</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="skill-card">
+                                <div class="skill-card-main">
+                                    <img src="assets/imgs/analytics.svg" alt="Outils de développement" class="skill-icon">
+                                    <h6 class="skill-title">Outils & Méthodes</h6>
+                                    <p class="skill-description-short">Workflow moderne</p>
+                                </div>
+                                <div class="skill-card-details">
+                                    <img src="assets/imgs/analytics.svg" alt="Outils de développement" class="skill-icon">
+                                    <h6 class="skill-title">Outils & Méthodes</h6>
+                                    <p class="skill-description-detailed">
+                                        Git, GitHub, VS Code - Maîtrise des outils de développement moderne 
+                                        et des workflows collaboratifs.
+                                    </p>
+                                    <div class="skill-technologies">
+                                        <h6>Outils :</h6>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">Git</span>
+                                            <span class="tech-tag">GitHub</span>
+                                            <span class="tech-tag">VS Code</span>
+                                            <span class="tech-tag">Terminal</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="skill-card">
+                                <div class="skill-card-main">
+                                    <img src="assets/imgs/pencil-case.svg" alt="UI/UX Design" class="skill-icon">
+                                    <h6 class="skill-title">UI/UX Design</h6>
+                                    <p class="skill-description-short">Design centré utilisateur</p>
+                                </div>
+                                <div class="skill-card-details">
+                                    <img src="assets/imgs/pencil-case.svg" alt="UI/UX Design" class="skill-icon">
+                                    <h6 class="skill-title">UI/UX Design</h6>
+                                    <p class="skill-description-detailed">
+                                        Conception d'interfaces intuitives, wireframing et apprentissage 
+                                        des meilleures pratiques de design centré utilisateur.
+                                    </p>
+                                    <div class="skill-technologies">
+                                        <h6>Compétences :</h6>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">Wireframing</span>
+                                            <span class="tech-tag">Prototyping</span>
+                                            <span class="tech-tag">User Research</span>
+                                            <span class="tech-tag">Design Systems</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Portfolio - Mise en page professionnelle -->
+    <section class="section-professional" id="portfolio">
+        <div class="container">
+            <div class="section-content" style="flex-direction: column;">
+                <div class="section-text responsive-portfolio-text" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <p class="section-subtitle-pro">Mes réalisations</p>
+                    <h2 class="section-title-pro">Portfolio</h2>
+                    <div class="section-description">
+                        <p>
+                            Découvrez une sélection de mes projets qui illustrent ma progression et 
+                            ma polyvalence en développement web. Chaque projet représente une étape 
+                            importante dans mon apprentissage et témoigne de ma passion pour créer 
+                            des solutions innovantes.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="assets/imgs/todolist.shot.png" alt="To-Do List Application" class="portfolio-image">
+                        <div class="portfolio-content">
+                            <h4 class="portfolio-title">To-Do List App</h4>
+                            <p class="portfolio-category">Application Web PHP</p>
+                            <p class="portfolio-description">
+                                Application complète de gestion de tâches développée en PHP natif. 
+                                Fonctionnalités CRUD, interface responsive et gestion de sessions utilisateur.
+                            </p>
+                            <div class="portfolio-links">
+                                <a href="https://github.com/salomonAMS/To-do-list" target="_blank" rel="noopener" class="portfolio-link" style="color: #fff !important;">
+                                    <i class="ti-github"></i> Code source
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <img src="assets/imgs/auth.shot.png" alt="Système d'authentification" class="portfolio-image">
+                        <div class="portfolio-content">
+                            <h4 class="portfolio-title">Système d'authentification</h4>
+                            <p class="portfolio-category">Frontend UI/UX</p>
+                            <p class="portfolio-description">
+                                Interface d'authentification moderne et responsive développée en HTML5/CSS3. 
+                                Design moderne avec animations fluides et validation côté client.
+                            </p>
+                            <div class="portfolio-links">
+                                <a href="https://github.com/salomonAMS/auth.github.io" target="_blank" rel="noopener" class="portfolio-link" style="color: #fff !important;">
+                                    <i class="ti-github"></i> Code source
+                                </a>
+                                <a href="https://salomonams.github.io/auth.github.io" target="_blank" rel="noopener" class="portfolio-link" style="color: #fff !important;">
+                                    <i class="ti-world"></i> Démo live
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <img src="assets/imgs/Bot.shot.png" alt="Bot WhatsApp" class="portfolio-image">
+                        <div class="portfolio-content">
+                            <h4 class="portfolio-title">Bot WhatsApp</h4>
+                            <p class="portfolio-category">Automation Python</p>
+                            <p class="portfolio-description">
+                                Bot d'envoi de messages automatisé pour WhatsApp développé en Python. 
+                                Utilisation de Selenium pour l'automatisation et interface simple.
+                            </p>
+                            <div class="portfolio-links">
+                                <a href="https://github.com/salomonAMS/BOT" target="_blank" rel="noopener" class="portfolio-link" style="color: #fff !important;">
+                                    <i class="ti-github"></i> Code source
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 70px;">
+                    <a href="https://github.com/salomonAMS" target="_blank" rel="noopener" class="btn-professional btn-responsive" title="Voir tous mes projets sur GitHub" style="color: #fff !important; padding: 12px 25px; display: inline-flex; align-items: center; justify-content: center; max-width: 100%; white-space: normal;">
+                        <i class="ti-github"></i> <span class="btn-text" style="color: #fff !important;">Voir tous mes projets sur GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appel à l'action section -->
+    <section class="section-sm bg-primary">
+        <div class="container text-center text-sm-left">
+            <div class="row align-items-center">
+                <div class="col-sm offset-md-1 mb-4 mb-md-0">
+                    <h6 class="title text-light">Envie de collaborer ?</h6>
+                    <p class="m-0 text-light">N'hésitez pas à me contacter pour discuter de vos projets !</p>
+                </div>
+                <div class="col-sm offset-sm-2 offset-md-3">
+                    <a href="mailto:amssalomon@gmail.com" class="btn btn-lg my-font btn-light rounded btn-responsive-cta" title="Me contacter" style="color: #fff !important;">
+                        <i class="ti-email"></i> <span class="btn-text-cta" style="color: #fff !important;">Me contacter</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact - Disposition inversée -->
+    <section class="section-professional reverse" id="contact">
+        <div class="container">
+            <div class="section-content">
+                <div class="section-text">
+                    <p class="section-subtitle-pro">Restons en contact</p>
+                    <h2 class="section-title-pro">Contactez-moi</h2>
+                    <div class="section-description">
+                        <p>
+                            Vous avez un projet en tête ? Une opportunité de collaboration ? 
+                            Ou simplement envie d'échanger sur le développement web ? 
+                            <span class="highlight">Je suis toujours ouvert aux discussions !</span>
+                        </p>
+                        <p>
+                            N'hésitez pas à me contacter via les moyens ci-dessous. 
+                            Je m'efforce de répondre dans les plus brefs délais.
+                        </p>
+                    </div>
+                    
+                    <!-- Informations de contact -->
+                    <div style="margin: 40px 0;">
+                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                            <i class="ti-email" style="font-size: 1.5rem; color: #695aa6; margin-right: 15px;"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                <a href="mailto:amssalomon@gmail.com" style="color: #666;">amssalomon@gmail.com</a>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                            <i class="ti-world" style="font-size: 1.5rem; color: #695aa6; margin-right: 15px;"></i>
+                            <div>
+                                <strong>GitHub</strong><br>
+                                <a href="https://github.com/salomonAMS" target="_blank" rel="noopener" style="color: #666;">github.com/salomonAMS</a>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <i class="ti-linkedin" style="font-size: 1.5rem; color: #695aa6; margin-right: 15px;"></i>
+                            <div>
+                                <strong>LinkedIn</strong><br>
+                                <a href="https://www.linkedin.com/in/salomon-ams-890b94275" target="_blank" rel="noopener" style="color: #666;">LinkedIn Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="mailto:amssalomon@gmail.com" class="btn-professional btn-compact" style="padding: 6px 12px; font-size: 0.8rem; width: auto; display: inline-flex; max-width: 120px; color: #fff !important;" title="Envoyer un email">
+                        <i class="ti-email" style="margin-right: 4px;"></i><span class="btn-text" style="color: #fff !important;">Email</span>
+                    </a>
+                </div>
+                
+                <div class="section-visual">
+                    <!-- Formulaire de contact -->
+                    <div style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; border: 1px solid rgba(105, 90, 166, 0.1);">
+                        <h4 style="font-family: 'Inter', sans-serif; color: #333; margin-bottom: 30px; text-align: center;">Envoyez-moi un message</h4>
+                        <form action="mailto:amssalomon@gmail.com" method="get" enctype="text/plain">
+                            <div style="margin-bottom: 20px;">
+                                <input type="text" name="name" placeholder="Votre nom" required class="form-input-responsive"
+                                       style="width: 100%; padding: 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-family: 'Inter', sans-serif; transition: border-color 0.3s ease;">
+                            </div>
+                            <div style="margin-bottom: 20px;">
+                                <input type="email" name="email" placeholder="Votre email" required class="form-input-responsive"
+                                       style="width: 100%; padding: 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-family: 'Inter', sans-serif; transition: border-color 0.3s ease;">
+                            </div>
+                            <div style="margin-bottom: 20px;">
+                                <input type="text" name="subject" placeholder="Sujet du message" required class="form-input-responsive"
+                                       style="width: 100%; padding: 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-family: 'Inter', sans-serif; transition: border-color 0.3s ease;">
+                            </div>
+                            <div style="margin-bottom: 30px;">
+                                <textarea name="body" rows="5" placeholder="Votre message..." required class="form-input-responsive"
+                                          style="width: 100%; padding: 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-family: 'Inter', sans-serif; resize: vertical; transition: border-color 0.3s ease;"></textarea>
+                            </div>
+                            <button type="submit" class="btn-professional btn-form-submit" style="width: 100%; justify-content: center; color: #fff !important;" title="Envoyer le message">
+                                <i class="ti-email"></i> <span class="btn-text-form" style="color: #fff !important;">Envoyer le message</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <div class="container">
+        <footer class="footer">
+            <p class="mb-0">© 
+                <script>document.write(new Date().getFullYear())</script> 
+                <strong>Salomon AMOUSSOU-KPAKPA</strong> - Développeur Full-Stack
+            </p>
+            <div class="social-links text-right m-auto ml-sm-auto">
+                <a href="https://github.com/salomonAMS" target="_blank" rel="noopener" class="link" title="GitHub"><i class="ti-github"></i></a>
+                <a href="https://www.linkedin.com/in/salomon-ams-890b94275" target="_blank" rel="noopener" class="link" title="LinkedIn"><i class="ti-linkedin"></i></a>
+                <a href="mailto:amssalomon@gmail.com" class="link" title="Email"><i class="ti-email"></i></a>
+            </div>
+        </footer>
+    </div> <!-- end of page footer -->
+
+    <!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Meyawo js -->
+    <script src="assets/js/meyawo.js"></script>
+    <script src="assets/js/navbar-scroll.js"></script>
+    
+    <!-- Typewriter effect -->
+    <script src="assets/js/typewriter.js"></script>
+    
+    <!-- Mobile Responsive Optimizations -->
+    <script src="assets/js/mobile-responsive.js"></script>
+    
+    <!-- Application principale optimisée -->
+    <script src="assets/js/portfolio-app.js"></script>
+    
+    <!-- Service Worker pour le cache (optionnel) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+
+</html>
