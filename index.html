@@ -30,6 +30,101 @@
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
     <!-- Bootstrap + Meyawo main styles -->
     <link rel="stylesheet" href="assets/css/meyawo.css?v=1.1">
+    
+    <!-- Styles responsifs pour mobile -->
+    <style>
+        /* Optimisations pour mobile */
+        @media (max-width: 768px) {
+            .header {
+                min-height: 100vh !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            
+            .header-content {
+                padding: 20px 15px !important;
+                text-align: center !important;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+            
+            .header-subtitle {
+                font-size: 1rem !important;
+                line-height: 1.4 !important;
+                margin-bottom: 25px !important;
+                padding: 0 10px !important;
+            }
+            
+            .btn-responsive-header {
+                max-width: 280px !important;
+                width: 95% !important;
+                margin: 0 auto !important;
+                padding: 15px 20px !important;
+                font-size: 0.9rem !important;
+                border-radius: 30px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+                white-space: normal !important;
+                line-height: 1.2 !important;
+                box-sizing: border-box !important;
+            }
+            
+            .btn-responsive-header .ti-eye {
+                margin-right: 8px !important;
+                font-size: 1rem !important;
+                flex-shrink: 0 !important;
+            }
+            
+            .btn-text-header {
+                font-size: 0.9rem !important;
+                font-weight: 600 !important;
+                text-align: center !important;
+            }
+        }
+        
+        /* Très petits écrans */
+        @media (max-width: 480px) {
+            .header-subtitle {
+                font-size: 0.9rem !important;
+                padding: 0 5px !important;
+            }
+            
+            .btn-responsive-header {
+                max-width: 260px !important;
+                width: 90% !important;
+                padding: 12px 16px !important;
+                font-size: 0.85rem !important;
+            }
+            
+            .btn-text-header {
+                font-size: 0.85rem !important;
+            }
+        }
+        
+        /* Styles pour les boutons de réseaux sociaux */
+        .social-links a:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 15px rgba(105, 90, 166, 0.5) !important;
+        }
+        
+        /* Styles pour les informations de contact - responsive */
+        .contact-info-container {
+            text-align: left;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-info-container {
+                text-align: center !important;
+            }
+            
+            .contact-info-container > div {
+                justify-content: center !important;
+            }
+        }
+    </style>
 
 </head>
 
@@ -38,7 +133,7 @@
     <!-- Page Navbar -->
     <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
         <div class="container">
-            <a class="logo" href="#"><img src="assets/imgs/mon logo.png" alt="Mon Logo">Mon Portfolio</a>
+            <a class="logo" href="#"><img src="assets/imgs/mon logo.png" alt="Mon Logo"></a>
             <ul class="nav">
                 <li class="item">
                     <a class="link" href="#home">Accueil</a>
@@ -65,16 +160,41 @@
     </nav><!-- End of Page Navbar -->
 
 <!-- page header -->
-<header id="home" class="header">
-    <div class="overlay"></div>
-    <div class="header-content container">
+<header id="home" class="header" style="background: url('assets/imgs/header.jpg') center center/cover no-repeat; min-height: 100vh; position: relative;">
+    <!-- Overlay transparent pour améliorer la lisibilité -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(1px);"></div>
+    
+    <div class="header-content container" style="position: relative; z-index: 2; text-align: center; padding: 20px;">
         <h1 class="header-title">
             <div class="text-hero"></div>
             <div class="text-impact"></div>
         </h1>
-        <p class="header-subtitle fade-in-up text-emphasis" style="color: #695aa6 !important;">Développeur Full-Stack passionné | Étudiant en 3ème année Licence Informatique</p>
-        <button class="btn btn-primary fade-in-button btn-responsive-header" style="color: #fff !important;" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})" title="Découvrir mes projets">
-            <i class="ti-eye"></i> <span class="btn-text-header" style="color: #fff !important;">Découvrir mes projets</span>
+        <p class="header-subtitle fade-in-up text-emphasis" style="color: #695aa6 !important; margin-bottom: 30px;">Développeur Full-Stack passionné | Étudiant en 3ème année Licence Informatique</p>
+        <button class="btn btn-primary fade-in-button btn-responsive-header" 
+                style="color: #fff !important; 
+                       background: #695aa6 !important; 
+                       border: 2px solid #695aa6; 
+                       border-radius: 25px; 
+                       padding: 12px 20px; 
+                       font-size: 0.9rem; 
+                       font-weight: 600; 
+                       text-transform: none; 
+                       letter-spacing: 0.5px;
+                       box-shadow: 0 4px 15px rgba(105, 90, 166, 0.3);
+                       transition: all 0.3s ease;
+                       max-width: 250px;
+                       width: 90%;
+                       margin: 0 auto;
+                       display: flex;
+                       align-items: center;
+                       justify-content: center;
+                       text-align: center;
+                       white-space: normal;
+                       line-height: 1.2;" 
+                onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})" 
+                title="Découvrir mes projets">
+            <i class="ti-eye" style="margin-right: 6px; flex-shrink: 0;"></i> 
+            <span class="btn-text-header" style="color: #fff !important;">Découvrir mes projets</span>
         </button>
     </div>
 </header><!-- end of page header -->
@@ -472,33 +592,35 @@
                     </div>
                     
                     <!-- Informations de contact -->
-                    <div style="margin: 40px 0;">
+                    <div class="contact-info-container" style="margin: 40px 0;">
                         <div style="display: flex; align-items: center; margin-bottom: 20px;">
                             <i class="ti-email" style="font-size: 1.5rem; color: #695aa6; margin-right: 15px;"></i>
-                            <div>
+                            <div style="text-align: left;">
                                 <strong>Email</strong><br>
                                 <a href="mailto:amssalomon@gmail.com" style="color: #666;">amssalomon@gmail.com</a>
                             </div>
                         </div>
                         <div style="display: flex; align-items: center; margin-bottom: 20px;">
                             <i class="ti-world" style="font-size: 1.5rem; color: #695aa6; margin-right: 15px;"></i>
-                            <div>
+                            <div style="text-align: left;">
                                 <strong>GitHub</strong><br>
                                 <a href="https://github.com/salomonAMS" target="_blank" rel="noopener" style="color: #666;">github.com/salomonAMS</a>
                             </div>
                         </div>
                         <div style="display: flex; align-items: center;">
                             <i class="ti-linkedin" style="font-size: 1.5rem; color: #695aa6; margin-right: 15px;"></i>
-                            <div>
+                            <div style="text-align: left;">
                                 <strong>LinkedIn</strong><br>
                                 <a href="https://www.linkedin.com/in/salomon-ams-890b94275" target="_blank" rel="noopener" style="color: #666;">LinkedIn Profile</a>
                             </div>
                         </div>
                     </div>
                     
-                    <a href="mailto:amssalomon@gmail.com" class="btn-professional btn-compact" style="padding: 6px 12px; font-size: 0.8rem; width: auto; display: inline-flex; max-width: 120px; color: #fff !important;" title="Envoyer un email">
-                        <i class="ti-email" style="margin-right: 4px;"></i><span class="btn-text" style="color: #fff !important;">Email</span>
-                    </a>
+                    <div style="text-align: left;">
+                        <a href="mailto:amssalomon@gmail.com" class="btn-professional btn-compact" style="padding: 6px 12px; font-size: 0.8rem; width: auto; display: inline-flex; max-width: 120px; color: #fff !important;" title="Envoyer un email">
+                            <i class="ti-email" style="margin-right: 4px;"></i><span class="btn-text" style="color: #fff !important;">Email</span>
+                        </a>
+                    </div>
                 </div>
                 
                 <div class="section-visual">
@@ -522,9 +644,11 @@
                                 <textarea name="body" rows="5" placeholder="Votre message..." required class="form-input-responsive"
                                           style="width: 100%; padding: 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-family: 'Inter', sans-serif; resize: vertical; transition: border-color 0.3s ease;"></textarea>
                             </div>
-                            <button type="submit" class="btn-professional btn-form-submit" style="width: 100%; justify-content: center; color: #fff !important;" title="Envoyer le message">
-                                <i class="ti-email"></i> <span class="btn-text-form" style="color: #fff !important;">Envoyer le message</span>
-                            </button>
+                            <div style="text-align: center;">
+                                <button type="submit" class="btn-professional btn-form-submit" style="width: auto; justify-content: center; color: #fff !important; padding: 12px 30px; margin: 0 auto; display: inline-flex;" title="Envoyer le message">
+                                    <i class="ti-email" style="margin-right: 8px;"></i> <span class="btn-text-form" style="color: #fff !important;">Envoyer le message</span>
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -539,10 +663,31 @@
                 <script>document.write(new Date().getFullYear())</script> 
                 <strong>Salomon AMOUSSOU-KPAKPA</strong> - Développeur Full-Stack
             </p>
-            <div class="social-links text-right m-auto ml-sm-auto">
-                <a href="https://github.com/salomonAMS" target="_blank" rel="noopener" class="link" title="GitHub"><i class="ti-github"></i></a>
-                <a href="https://www.linkedin.com/in/salomon-ams-890b94275" target="_blank" rel="noopener" class="link" title="LinkedIn"><i class="ti-linkedin"></i></a>
-                <a href="mailto:amssalomon@gmail.com" class="link" title="Email"><i class="ti-email"></i></a>
+            <div class="social-links" style="display: flex; justify-content: center; gap: 15px; margin-top: 15px;">
+                <a href="https://github.com/salomonAMS" target="_blank" rel="noopener" class="link" 
+                   style="display: inline-flex; align-items: center; justify-content: center; 
+                          width: 45px; height: 45px; background: #695aa6; color: #fff !important; 
+                          border-radius: 50%; text-decoration: none; font-size: 18px;
+                          transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(105, 90, 166, 0.3);" 
+                   title="GitHub">
+                    <i class="ti-github" style="color: #fff !important;"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/salomon-ams-890b94275" target="_blank" rel="noopener" class="link" 
+                   style="display: inline-flex; align-items: center; justify-content: center; 
+                          width: 45px; height: 45px; background: #695aa6; color: #fff !important; 
+                          border-radius: 50%; text-decoration: none; font-size: 18px;
+                          transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(105, 90, 166, 0.3);" 
+                   title="LinkedIn">
+                    <i class="ti-linkedin" style="color: #fff !important;"></i>
+                </a>
+                <a href="mailto:amssalomon@gmail.com" class="link" 
+                   style="display: inline-flex; align-items: center; justify-content: center; 
+                          width: 45px; height: 45px; background: #695aa6; color: #fff !important; 
+                          border-radius: 50%; text-decoration: none; font-size: 18px;
+                          transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(105, 90, 166, 0.3);" 
+                   title="Email">
+                    <i class="ti-email" style="color: #fff !important;"></i>
+                </a>
             </div>
         </footer>
     </div> <!-- end of page footer -->
