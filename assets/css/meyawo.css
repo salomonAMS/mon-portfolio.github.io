@@ -12671,7 +12671,7 @@ pre .code {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-image: url(../imgs/header.jpg);
+  background: linear-gradient(135deg, #695aa6 0%, rgba(105, 90, 166, 0.8) 100%);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

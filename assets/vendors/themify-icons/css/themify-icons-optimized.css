@@ -1,0 +1,47 @@
+/* Version optimisée de themify-icons pour de meilleures performances */
+@font-face {
+	font-family: 'themify';
+	src: url("../fonts/themify.woff2?-fvbane") format("woff2"),
+		 url("../fonts/themify.woff?-fvbane") format("woff"),
+		 url("../fonts/themify.ttf?-fvbane") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap; /* Améliore les performances de chargement */
+}
+
+[class^="ti-"], [class*=" ti-"] {
+	font-family: 'themify', 'Font Awesome 5 Free', Arial, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Classes les plus utilisées dans le portfolio */
+.ti-email:before { content: "\e609"; }
+.ti-mobile:before { content: "\e61a"; }
+.ti-world:before { content: "\e62f"; }
+.ti-linkedin:before { content: "\e64f"; }
+.ti-github:before { content: "\e65f"; }
+.ti-facebook:before { content: "\e66f"; }
+.ti-twitter:before { content: "\e67f"; }
+.ti-instagram:before { content: "\e68f"; }
+.ti-location-pin:before { content: "\e69f"; }
+.ti-calendar:before { content: "\e6af"; }
+.ti-download:before { content: "\e6bf"; }
+.ti-link:before { content: "\e6cf"; }
+.ti-check:before { content: "\e6df"; }
+.ti-close:before { content: "\e6ef"; }
+.ti-menu:before { content: "\e6ff"; }
+.ti-arrow-up:before { content: "\e70f"; }
+.ti-arrow-down:before { content: "\e71f"; }
+.ti-arrow-left:before { content: "\e72f"; }
+.ti-arrow-right:before { content: "\e73f"; }
+
+/* Fallback pour les icônes manquantes */
+[class^="ti-"]:before, [class*=" ti-"]:before {
+	font-family: 'themify', 'Font Awesome 5 Free', Arial, sans-serif;
+}
