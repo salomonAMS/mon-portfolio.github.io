@@ -165,6 +165,14 @@
             border-bottom: 1px solid #444;
         }
         
+        /* Mode sombre pour navbar sur mobile */
+        @media (max-width: 768px) {
+            .dark-mode .custom-navbar {
+                background-color: #000000 !important;
+                border-bottom: 1px solid #333 !important;
+            }
+        }
+        
         .dark-mode .theme-toggle-btn {
             color: #e0e0e0;
         }
@@ -318,7 +326,7 @@
                 </li>
                 <li class="item">
                     <button id="theme-toggle" class="theme-toggle-btn" title="Basculer le thème">
-                        <i class="ti-palette"></i>
+                        <i class="ti-palette"> Thème</i>
                     </button>
                 </li>
             </ul>
