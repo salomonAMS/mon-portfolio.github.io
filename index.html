@@ -131,6 +131,165 @@
                 justify-content: center !important;
             }
         }
+        
+        /* Bouton de bascule de thème */
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+        
+        .theme-toggle-btn:hover {
+            background: rgba(105, 90, 166, 0.1);
+            color: #695aa6;
+        }
+        
+        /* Styles pour le mode sombre */
+        body.dark-mode {
+            background-color: #ffffff;
+            color: #e0e0e0;
+        }
+        
+        .dark-mode .custom-navbar {
+            background-color: #2d2d2d;
+            border-bottom: 1px solid #444;
+        }
+        
+        .dark-mode .theme-toggle-btn {
+            color: #e0e0e0;
+        }
+        
+        .dark-mode .theme-toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        
+        .dark-mode .section-professional {
+            background-color: #1a1a1a;
+        }
+        
+        .dark-mode .section-professional.reverse {
+            background-color: #2d2d2d;
+        }
+        
+        .dark-mode .section-title-pro,
+        .dark-mode .section-subtitle-pro {
+            color: #e0e0e0;
+        }
+        
+        .dark-mode .section-description {
+            color: #b0b0b0;
+        }
+        
+        .dark-mode .skill-card {
+            background-color: #000000 !important;
+            border-color: #000000 !important;
+        }
+        
+        .dark-mode .skill-card:hover {
+            background-color: #1a1a1a !important;
+        }
+        
+        .dark-mode .skill-title {
+            color: #ffffff !important;
+        }
+        
+        .dark-mode .skill-description-short,
+        .dark-mode .skill-description-detailed {
+            color: #ffffff !important;
+        }
+        
+        /* Force les tech-tags en blanc dans tous les modes et écrans */
+        .tech-tag {
+            color: #ffffff !important;
+        }
+        
+        .dark-mode .portfolio-item {
+            background-color: #000000 !important;
+            border-color: #333 !important;
+        }
+        
+        .dark-mode .portfolio-title {
+            color: #ffffff !important;
+        }
+        
+        .dark-mode .portfolio-description,
+        .dark-mode .portfolio-category {
+            color: #ffffff !important;
+        }
+        
+        .dark-mode .footer {
+            background-color: #ffffff;
+            border-top: 1px solid #444;
+        }
+        
+        .dark-mode .footer p {
+            color: #000000 !important;
+        }
+        
+        .dark-mode .footer strong {
+            color: #000000 !important;
+        }
+        
+        .dark-mode .contact-info-container a {
+            color: #000000 !important;
+        }
+        
+        .dark-mode .contact-info-container strong {
+            color: #000000 !important;
+        }
+        
+        .dark-mode .stat-number {
+            color: #ffffff;
+        }
+        
+        .dark-mode .stat-label {
+            color: #ffffff;
+        }
+        
+        /* Mode sombre pour les barres de progression */
+        .dark-mode .progress-skills-grid > div {
+            background: rgba(5, 5, 5, 0.7) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        .dark-mode .progress-skills-grid span {
+            color: #e0e0e0 !important;
+        }
+        
+        /* Mode sombre pour le formulaire */
+        .dark-mode .form-input-responsive {
+            background-color: #2d2d2d !important;
+            border-color: #444 !important;
+            color: #e0e0e0 !important;
+        }
+        
+        .dark-mode .form-input-responsive::placeholder {
+            color: #888 !important;
+        }
+        
+        .dark-mode .form-input-responsive:focus {
+            border-color: #695aa6 !important;
+        }
+        
+        /* Animation pour la transition */
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .section-professional {
+            transition: background-color 0.3s ease;
+        }
     </style>
 
 </head>
@@ -156,6 +315,11 @@
                 </li>
                 <li class="item">
                     <a class="link" href="#contact">Contact</a>
+                </li>
+                <li class="item">
+                    <button id="theme-toggle" class="theme-toggle-btn" title="Basculer le thème">
+                        <i class="ti-palette"></i>
+                    </button>
                 </li>
             </ul>
             <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
@@ -618,12 +782,12 @@
                             <i class="ti-linkedin" style="font-size: 1.5rem; color: #695aa6; margin-right: 15px;"></i>
                             <div style="text-align: left;">
                                 <strong>LinkedIn</strong><br>
-                                <a href="https://www.linkedin.com/in/salomon-ams-890b94275" target="_blank" rel="noopener" style="color: #666;">LinkedIn Profile</a>
+                                <a href="https://www.linkedin.com/in/salomon-ams-890b94275" target="_blank" rel="noopener" style="color: #666;">Salomon AMS</a>
                             </div>
                         </div>
                     </div>
                     
-                    <div style="text-align: left;">
+                    <div style="text-align: center;">
                         <a href="mailto:amssalomon@gmail.com" class="btn-professional btn-compact" style="padding: 6px 12px; font-size: 0.8rem; width: auto; display: inline-flex; max-width: 120px; color: #fff !important;" title="Envoyer un email">
                             <i class="ti-email" style="margin-right: 4px;"></i><span class="btn-text" style="color: #fff !important;">Email</span>
                         </a>
@@ -756,6 +920,39 @@
             } else {
                 console.error('Bouton CV non trouvé !');
             }
+            
+            // Gestionnaire pour le bouton de bascule de thème
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            const themeIcon = themeToggle.querySelector('i');
+            
+            // Vérifier si un thème est déjà sauvegardé
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                themeIcon.className = 'ti-light-bulb';
+                themeToggle.title = 'Passer au mode clair';
+            } else {
+                themeIcon.className = 'ti-palette';
+                themeToggle.title = 'Passer au mode sombre';
+            }
+            
+            // Gestionnaire de clic pour basculer le thème
+            themeToggle.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                
+                if (body.classList.contains('dark-mode')) {
+                    // Passer en mode sombre
+                    themeIcon.className = 'ti-light-bulb';
+                    themeToggle.title = 'Passer au mode clair';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    // Passer en mode clair
+                    themeIcon.className = 'ti-palette';
+                    themeToggle.title = 'Passer au mode sombre';
+                    localStorage.setItem('theme', 'light');
+                }
+            });
         });
     </script>
 </body>
