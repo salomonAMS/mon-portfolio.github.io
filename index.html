@@ -13,15 +13,22 @@
     <meta property="og:description" content="Portfolio de Salomon AMOUSSOU-KPAKPA - Développeur Full-Stack passionné, étudiant en 3ème année Licence Informatique. Spécialisé en HTML, CSS, JavaScript, PHP, Python.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/imgs/mon logo.png">
+    <meta property="og:url" content="https://salomonams.github.io/mon-portfolio.github.io/">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <title>Mon portfolio</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" type="image/png" href="assets/imgs/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/imgs/favicon.svg" />
+    <link rel="shortcut icon" href="assets/imgs/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/imgs/site.webmanifest" />
     <meta name="msapplication-TileImage" content="assets/imgs/mon logo.png">
     <meta name="msapplication-TileColor" content="#695aa6">
     <meta name="theme-color" content="#695aa6">
@@ -249,11 +256,11 @@
                     </div>
                     
                     <div class="buttons-container-responsive" style="display: flex; gap: 20px; flex-wrap: wrap;">
-                        <a href="CV_2025-07-28_Kossi salomon H._AMOUSSOU-KPAKPA.pdf" target="_blank" class="btn-professional btn-responsive" title="Télécharger mon CV" style="color: #fff !important;">
-                            <i class="ti-download"></i> <span class="btn-text" style="color: #fff !important;">Télécharger mon CV</span>
+                        <a id="cv-download-btn" href="CV-Salomon-AMOUSSOU-KPAKPA.pdf" target="_blank" rel="noopener" class="btn-professional btn-responsive" title="Télécharger mon CV" style="color: #fff !important; text-decoration: none; position: relative; z-index: 10; display: flex; align-items: center; justify-content: center;">
+                            <i class="ti-download" style="margin-right: 8px;"></i> <span class="btn-text" style="color: #fff !important;">Télécharger mon CV</span>
                         </a>
-                        <a href="#contact" class="btn-professional btn-responsive" title="Me contacter" style="color: #fff !important;">
-                            <i class="ti-email"></i> <span class="btn-text" style="color: #fff !important;">Me contacter</span>
+                        <a href="#contact" class="btn-professional btn-responsive" title="Me contacter" style="color: #fff !important; text-decoration: none; display: flex; align-items: center; justify-content: center;">
+                            <i class="ti-email" style="margin-right: 8px;"></i> <span class="btn-text" style="color: #fff !important;">Me contacter</span>
                         </a>
                     </div>
                 </div>
@@ -627,21 +634,21 @@
                     <!-- Formulaire de contact -->
                     <div style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; border: 1px solid rgba(105, 90, 166, 0.1);">
                         <h4 style="font-family: 'Inter', sans-serif; color: #333; margin-bottom: 30px; text-align: center;">Envoyez-moi un message</h4>
-                        <form action="mailto:amssalomon@gmail.com" method="get" enctype="text/plain">
+                        <form id="contactForm" onsubmit="sendEmail(event)">
                             <div style="margin-bottom: 20px;">
-                                <input type="text" name="name" placeholder="Votre nom" required class="form-input-responsive"
+                                <input type="text" id="name" name="name" placeholder="Votre nom" required class="form-input-responsive"
                                        style="width: 100%; padding: 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-family: 'Inter', sans-serif; transition: border-color 0.3s ease;">
                             </div>
                             <div style="margin-bottom: 20px;">
-                                <input type="email" name="email" placeholder="Votre email" required class="form-input-responsive"
+                                <input type="email" id="email" name="email" placeholder="Votre email" required class="form-input-responsive"
                                        style="width: 100%; padding: 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-family: 'Inter', sans-serif; transition: border-color 0.3s ease;">
                             </div>
                             <div style="margin-bottom: 20px;">
-                                <input type="text" name="subject" placeholder="Sujet du message" required class="form-input-responsive"
+                                <input type="text" id="subject" name="subject" placeholder="Sujet du message" required class="form-input-responsive"
                                        style="width: 100%; padding: 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-family: 'Inter', sans-serif; transition: border-color 0.3s ease;">
                             </div>
                             <div style="margin-bottom: 30px;">
-                                <textarea name="body" rows="5" placeholder="Votre message..." required class="form-input-responsive"
+                                <textarea id="message" name="body" rows="5" placeholder="Votre message..." required class="form-input-responsive"
                                           style="width: 100%; padding: 15px; border: 2px solid #e1e5e9; border-radius: 10px; font-family: 'Inter', sans-serif; resize: vertical; transition: border-color 0.3s ease;"></textarea>
                             </div>
                             <div style="text-align: center;">
@@ -705,6 +712,52 @@
     
     <!-- Typewriter effect -->
     <script src="assets/js/typewriter.js"></script>
+    
+    <!-- Script pour formulaire de contact sécurisé -->
+    <script>
+        function sendEmail(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            const emailBody = `Nom: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+            const emailSubject = `Portfolio - ${subject}`;
+            
+            // Créer le lien mailto de manière sécurisée
+            const mailtoLink = `mailto:amssalomon@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
+            
+            // Ouvrir dans une nouvelle fenêtre pour éviter les problèmes de sécurité
+            window.open(mailtoLink, '_blank');
+            
+            // Optionnel: Afficher un message de confirmation
+            alert('Votre client email va s\'ouvrir avec le message pré-rempli. Merci !');
+        }
+        
+        // Script pour corriger le problème du bouton de téléchargement CV
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM chargé - initialisation du bouton CV');
+            
+            // Sélectionner le bouton CV spécifique
+            const cvButton = document.getElementById('cv-download-btn');
+            
+            if (cvButton) {
+                console.log('Bouton CV trouvé, ajout des gestionnaires d\'événements');
+                
+                // Supprimer tous les gestionnaires existants et en ajouter un nouveau
+                cvButton.onclick = function(e) {
+                    e.preventDefault();
+                    console.log('Clic sur bouton CV détecté');
+                    window.open('CV-Salomon-AMOUSSOU-KPAKPA.pdf', '_blank');
+                    return false;
+                };
+            } else {
+                console.error('Bouton CV non trouvé !');
+            }
+        });
+    </script>
 </body>
 
 </html>
